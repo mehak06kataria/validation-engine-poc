@@ -88,6 +88,7 @@ To view DB: open http://localhost:8080/h2-console
 JDBC URL: jdbc:h2:mem:testdb
 ```
 
+```
 📄 Sample Validations
 Field	    Rule	                        Example
 First Name	Must be alphabetic	            John
@@ -95,35 +96,36 @@ Email	    Valid email format	            john@example.com
 Phone	    Exactly 10 digits, no letters	9876543210
 Age	        Must be > 18	                19
 Resume	    Must be a PDF	                resume.pdf
+```
 
 ```
 ✅ Clean Code & Review Notes
-Structure: Code is logically split between frontend and backend folders.
+-Structure: Code is logically split between frontend and backend folders.
 
-Validation Layer: Hibernate Validator is used via annotation-based constraints – clean and scalable.
+-Validation Layer: Hibernate Validator is used via annotation-based constraints – clean and scalable.
 
-Frontend UX: Real-time feedback shown after form submission; visual hierarchy and spacing are decent with Tailwind.
+-Frontend UX: Real-time feedback shown after form submission; visual hierarchy and spacing are decent with Tailwind.
 
-Improvement Areas (Optional):
+-Improvement Areas (Optional):
 
-Add unit/integration tests (esp. for validation edge cases).
+-Add unit/integration tests (esp. for validation edge cases).
 
-Show per-field validation live while typing (now it appears only post-submit).
+-Show per-field validation live while typing (now it appears only post-submit).
 
-Improve mobile responsiveness slightly.
+-Improve mobile responsiveness slightly.
 
-Add dropdowns or datepickers for structured fields.
+-Add dropdowns or datepickers for structured fields.
 ```
 
 ```
 🧪 Future Enhancements
-Add testing using JUnit (backend) and React Testing Library (frontend)
+-Add testing using JUnit (backend) and React Testing Library (frontend)
 
-Add user authentication layer
+-Add user authentication layer
 
-Store resumes in cloud or file system
+-Store resumes in cloud or file system
 
-Resume parsing using an external AI/NLP parser
+-Resume parsing using an external AI/NLP parser
 ```
 
 
