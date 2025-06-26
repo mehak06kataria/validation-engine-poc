@@ -42,7 +42,7 @@ public class ValidationController {
             request.getLastName(),
             request.getEmail(),
             request.getPhone(),
-            request.getAge(),
+            request.getAge() != null ? request.getAge() : -1,
             request.getResume()
         );
 
