@@ -1,4 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import {
+  Container,
+  Typography,
+  Grid,
+  TextField,
+  Button,
+  Paper,
+  Box,
+  Alert,
+} from "@mui/material";
 
 function App() {
   const [form, setForm] = useState({
@@ -7,7 +17,6 @@ function App() {
     email: "",
     phone: "",
     age: "",
-    education: "",
     experience: "",
   });
   const [resume, setResume] = useState(null);
@@ -45,15 +54,12 @@ function App() {
       }
 
       const data = await res.json();
-      console.log("Parsed data:", data);
-
       setForm((prev) => ({
         ...prev,
         email: data.email || prev.email,
         phone: data.phone || prev.phone,
         firstName: data.name?.split(" ")[0] || prev.firstName,
         lastName: data.name?.split(" ")[1] || prev.lastName,
-        education: data.education || prev.education,
         experience: data.experience || prev.experience,
       }));
     } catch (err) {
@@ -62,33 +68,15 @@ function App() {
   };
 
   const handleSubmit = async () => {
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      age,
-      education,
-      experience,
-    } = form;
-
     setLoading(true);
     setResult(null);
 
     try {
       const response = await fetch("http://localhost:8080/api/profile/save", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phone,
-          age,
-          education,
-          experience,
+          ...form,
           resumePath: resume?.name || "",
         }),
       });
@@ -103,97 +91,112 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black p-8 flex flex-col items-center">
-      <h1 className="text-3xl font-bold mb-6">👤 Profile Page</h1>
+    <Container maxWidth="sm" sx={{ py: 5 }}>
+      <Paper elevation={3} sx={{ p: 4 }}>
+        <Typography variant="h5" fontWeight="bold" align="center" gutterBottom>
+          Create Your Profile
+        </Typography>
+        <Typography variant="body2" color="text.secondary" align="center" mb={3}>
+          Fill in your details to get started
+        </Typography>
 
-      <div className="w-full max-w-xl space-y-4">
-        <input
-          name="firstName"
-          placeholder="First Name"
-          value={form.firstName}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="lastName"
-          placeholder="Last Name"
-          value={form.lastName}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="phone"
-          placeholder="Phone Number"
-          value={form.phone}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="age"
-          type="number"
-          placeholder="Age"
-          value={form.age}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="education"
-          placeholder="Education"
-          value={form.education}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          name="experience"
-          placeholder="Experience"
-          value={form.experience}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={handleFileChange}
-          className="w-full"
-        />
+        <Box mb={2}>
+          <input
+            type="file"
+            accept=".pdf"
+            onChange={handleFileChange}
+            style={{ marginBottom: 8 }}
+          />
+        </Box>
+
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="firstName"
+              label="First Name"
+              fullWidth
+              value={form.firstName}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="lastName"
+              label="Last Name"
+              fullWidth
+              value={form.lastName}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="email"
+              label="Email"
+              fullWidth
+              value={form.email}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="phone"
+              label="Phone Number"
+              fullWidth
+              value={form.phone}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="age"
+              label="Age"
+              type="number"
+              fullWidth
+              value={form.age}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="experience"
+              label="Resume / Bio"
+              fullWidth
+              multiline
+              rows={2}
+              value={form.experience}
+              onChange={handleChange}
+            />
+          </Grid>
+        </Grid>
 
         {error && (
-          <div className="bg-red-100 text-red-700 p-2 rounded text-sm">
-            {error}
-          </div>
+          <Box mt={2}>
+            <Alert severity="error">{error}</Alert>
+          </Box>
         )}
 
-        <button
-          onClick={handleSubmit}
-          disabled={loading}
-          className="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700"
-        >
-          {loading ? "Submitting..." : "Submit Now"}
-        </button>
-      </div>
+        <Box mt={3}>
+          <Button
+            fullWidth
+            variant="contained"
+            onClick={handleSubmit}
+            disabled={loading}
+          >
+            {loading ? "Submitting..." : "Submit Profile"}
+          </Button>
+        </Box>
 
-      {result?.results && (
-        <div className="mt-6 w-full max-w-xl space-y-2">
-          {result.results.map((r, idx) => (
-            <div
-              key={idx}
-              className={`p-3 rounded text-sm font-medium ${
-                r.valid ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
-              }`}
-            >
-              {r.valid ? "✅" : "❌"} {r.rule}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+        {result?.results && (
+          <Box mt={3}>
+            {result.results.map((r, idx) => (
+              <Alert key={idx} severity={r.valid ? "success" : "error"} sx={{ mb: 1 }}>
+                {r.valid ? "✅" : "❌"} {r.rule}
+              </Alert>
+            ))}
+          </Box>
+        )}
+      </Paper>
+    </Container>
   );
 }
 
