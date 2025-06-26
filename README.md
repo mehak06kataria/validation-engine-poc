@@ -63,7 +63,9 @@ A lightweight full-stack POC built using **React + TailwindCSS + Spring Boot + H
 ```
 git clone <your_repo_url>
 cd frontend
+```
 2️⃣ Frontend Setup
+
 ```
 cd frontend
 npm install
@@ -72,6 +74,7 @@ npm run dev
 App runs at: http://localhost:5173
 
 3️⃣ Backend Setup
+
 ```
 cd backend
 ./mvnw spring-boot:run
