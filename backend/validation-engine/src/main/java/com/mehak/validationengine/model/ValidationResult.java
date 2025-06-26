@@ -3,12 +3,19 @@ package com.mehak.validationengine.model;
 public class ValidationResult {
     private String rule;
     private boolean valid;
+    private String message; // NEW
 
-    public ValidationResult() {}
-
+    // Constructor for success/failure without a message
     public ValidationResult(String rule, boolean valid) {
         this.rule = rule;
         this.valid = valid;
+    }
+
+    // Constructor for failure with message
+    public ValidationResult(String rule, boolean valid, String message) {
+        this.rule = rule;
+        this.valid = valid;
+        this.message = message;
     }
 
     public String getRule() {
@@ -25,5 +32,13 @@ public class ValidationResult {
 
     public void setValid(boolean valid) {
         this.valid = valid;
+    }
+
+    public String getMessage() { // NEW
+        return message;
+    }
+
+    public void setMessage(String message) { // NEW
+        this.message = message;
     }
 }
