@@ -99,6 +99,57 @@ Resume	    Must be a PDF	                resume.pdf
 ```
 
 ```
+✅ Tests
+Unit and integration tests are implemented for both the frontend and backend to ensure correctness and validation coverage.
+```
+
+```🔬 Frontend Tests
+Framework: Vitest + React Testing Library
+
+Test File: frontend/src/App.test.jsx
+```
+Run Command:
+
+```
+cd frontend
+npm test
+```
+
+```
+✅ Covered Scenarios
+Renders all input fields using accessible labels
+
+Shows error when a non-PDF resume file is uploaded
+```
+
+```
+📸 Screenshot:
+Frontend test output → frontend/assets/fe-test.pmg.png
+```
+```
+🧪 Backend Tests
+Framework: JUnit + Spring Boot MockMvc
+
+Test File: SaveProfileControllerTest.java
+```
+Run Command:
+
+```
+cd backend
+./mvnw test
+```
+
+```
+✅ Covered Scenarios
+✅ Accepts and saves a valid user profile
+
+❌ Rejects invalid email format with 400 Bad Request
+
+📸 Screenshot:
+Backend test output → frontend/assets/be-test.png
+```
+
+```
 ✅ Clean Code & Review Notes
 -Structure: Code is logically split between frontend and backend folders.
 
