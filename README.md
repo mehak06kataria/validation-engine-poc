@@ -36,15 +36,15 @@ A lightweight full-stack POC built using **React + TailwindCSS + Spring Boot + H
 ```
 ### 🟢 Success State
 
-![Success](./screenshots/Screenshot%202025-06-27%20at%204.17.23 AM.png)
+![Success](./frontend/assets/success.png)
 
 ### 🔴 Failure State
 
-![Failure](./screenshots/Screenshot%202025-06-27%20at%204.15.16 AM.png)
+![Failure](./frontend/assets/failure.png)
 
 ### 🗃️ Database Entries in H2
 
-![DB View](./screenshots/Screenshot%202025-06-27%20at%204.18.24 AM.png)
+![H2 Database](./frontend/assets/h2-db-view.png)
 
 ---
 
@@ -178,4 +178,4 @@ cd backend
 -Resume parsing using an external AI/NLP parser
 ```
 
-
+Built with ❤️ by Mehak Kataria for the Uniper Tech Assessment.
