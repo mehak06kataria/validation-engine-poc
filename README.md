@@ -13,8 +13,8 @@ A lightweight full-stack POC built using **React + TailwindCSS + Spring Boot + H
 - Fetch API
 
 ### Backend:
-- Java 17
-- Spring Boot
+- **Java 17 + Spring Boot** (`backend-java`) — Profile validation + database storage
+- **Python (Flask)** (`backend-py`) — Resume parsing
 - Hibernate Validator
 - H2 Database (in-memory)
 - Spring Data JPA
@@ -51,11 +51,25 @@ A lightweight full-stack POC built using **React + TailwindCSS + Spring Boot + H
 ```
 ## 📦 Setup Instructions
 
-### Prerequisites:
-- Node.js
-- Java 17+
+### ✅ Prerequisites:
+- Node.js (for frontend)
+- Java 17+ (for validation & DB backend)
+- Python 3.10+ (for resume parsing)
 - Maven
+- pip / virtualenv (for Python dependencies)
+
 ```
+---
+
+```
+## 🧩 Folder Structure
+
+.
+├── frontend # React + Tailwind profile form
+├── backend-java # Spring Boot backend with Hibernate Validator
+├── backend-py # Python Flask API for resume parsing
+```
+
 ---
 
 ### 1️⃣ Clone Repository & Navigate
@@ -73,14 +87,24 @@ npm run dev
 ```
 App runs at: http://localhost:5173
 
-3️⃣ Backend Setup
+3️⃣ Java Backend Setup
 
 ```
-cd backend
+cd backend-java
 ./mvnw spring-boot:run
 ```
 Spring Boot backend runs at: http://localhost:8080
 
+3️⃣ Python Backend Setup
+
+```
+cd backend-py
+python3 -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+python app.py
+
+```
 
 ```
 To view DB: open http://localhost:8080/h2-console
