@@ -126,6 +126,7 @@ Shows error when a non-PDF resume file is uploaded
 [![Frontend Test Screenshot](./frontend/assets/fe-test.png)](./frontend/assets/fe-test.png)
 
 ```
+```
 🧪 Backend Tests
 Framework: JUnit + Spring Boot MockMvc
 
@@ -147,6 +148,7 @@ cd backend
 📸 Screenshot:
 [![Backend Test Screenshot](./frontend/assets/be-test.png)](./frontend/assets/be-test.png)
 
+```
 
 ```
 ✅ Clean Code & Review Notes
