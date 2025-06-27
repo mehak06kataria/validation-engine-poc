@@ -122,10 +122,9 @@ Renders all input fields using accessible labels
 Shows error when a non-PDF resume file is uploaded
 ```
 
-```
 📸 Screenshot:
 Frontend test output → frontend/assets/fe-test.pmg.png
-```
+
 ```
 🧪 Backend Tests
 Framework: JUnit + Spring Boot MockMvc
@@ -144,10 +143,10 @@ cd backend
 ✅ Accepts and saves a valid user profile
 
 ❌ Rejects invalid email format with 400 Bad Request
-
+```
 📸 Screenshot:
 Backend test output → frontend/assets/be-test.png
-```
+
 
 ```
 ✅ Clean Code & Review Notes
