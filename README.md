@@ -123,7 +123,7 @@ Shows error when a non-PDF resume file is uploaded
 ```
 
 📸 Screenshot:
-Frontend test output → frontend/assets/fe-test.pmg.png
+[![Frontend Test Screenshot](./frontend/assets/fe-test.png)](./frontend/assets/fe-test.png)
 
 ```
 🧪 Backend Tests
@@ -145,7 +145,7 @@ cd backend
 ❌ Rejects invalid email format with 400 Bad Request
 ```
 📸 Screenshot:
-Backend test output → frontend/assets/be-test.png
+[![Backend Test Screenshot](./frontend/assets/be-test.png)](./frontend/assets/be-test.png)
 
 
 ```
