@@ -92,4 +92,13 @@ public class UserProfile {
     public void setResumePath(String resumePath) {
         this.resumePath = resumePath;
     }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+    
+    public void setEducation(String education) {
+        this.education = education;
+    }
+    
 }

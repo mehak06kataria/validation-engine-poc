@@ -101,7 +101,11 @@ function App() {
         </Typography>
 
         <Box mb={2}>
+          <label htmlFor="resume-upload" style={{ display: "block", marginBottom: 4 }}>
+            Upload Resume
+          </label>
           <input
+            id="resume-upload"
             type="file"
             accept=".pdf"
             onChange={handleFileChange}
