@@ -44,7 +44,7 @@ A lightweight full-stack POC built using **React + TailwindCSS + Spring Boot + H
 
 ### 🗃️ Database Entries in H2
 
-![H2 Database](./frontend/assets/h2-db-view.png)
+![H2 Database](./frontend/assets/database.png)
 
 ---
 
